@@ -8,17 +8,17 @@
     
 </head>
 <body>
-    <div class="quiz-container">
+    <div class="quiz-container">   <!-- Quiz container, shared by all questions and answers. -->
         <h1>JavaScript Quiz</h1>
-        <div class="questions-container"></div>
-        <div class="options-container"></div>
-        <button class="next-button">Next Question</button>
+        <div class="questions-container"></div>  <!-- Questions container, shared by all questions -->
+        <div class="options-container"></div>     <!-- Options container, shared by all questions -->
+        <button class="next-button">Next Question</button>  <!-- Next question button, shared by all questions -->
     </div>
-    <div class="score-container hidden">
-        <h2>Your Score</h2>
-        <p class="score"></p>
-        <button class="restart-button">Restart Quiz</button>
+    <div class="score-container hidden">     <!-- Score container, hidden by default -->
+        <h2>Your Score</h2>                 <!-- Score title -->
+        <p class="score"></p>               <!-- Score display -->
+        <button class="restart-button">Restart Quiz</button>  <!-- Restart quiz button, hidden by default -->
     </div>
-    <script src="js/quiz.js"></script>
+    <script src="js/quiz.js"></script>   <!-- Quiz script -->
 </body>
 </html>
