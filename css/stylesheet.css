@@ -1,0 +1,23 @@
+/* Reset default styles */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Style for the quiz and score containers shared */
+.quiz-container, .score-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: gray;
+}
+
+ /* Style for score section. */
+/*  Hide elements by default, unless explicitly shown,  */
+.hidden { 
+    display: none; 
+}
