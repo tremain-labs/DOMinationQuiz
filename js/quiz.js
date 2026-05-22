@@ -39,3 +39,8 @@ function loadQuestion() {
         optionsContainer.appendChild(optionButton)
     })
 }
+
+startButton.addEventListener('click', () => {
+    startButton.classList.add('hidden')  // hide start button
+    loadQuestion()                        // show first question
+})
