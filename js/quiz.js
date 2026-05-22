@@ -9,11 +9,6 @@ const nextButton = document.querySelector('.next-button')
 let currentQuestion = 0;
 let score = 0;
 
-for (let i = 0; i < questions.length; i++) {
-    const question = questions[i]
-}
-
-
 // The quiz questions and answers
 const quizData = [ 
     {
@@ -28,3 +23,18 @@ const quizData = [
     }
 
 ];
+
+// Load the current question
+
+function loadQuestion() {
+    const question = quizData[currentQuestion]
+    questionsContainer.textContent = question.question
+    optionsContainer.textContent = ""
+    
+    question.options.forEach((option, index) => {
+        const optionButton = document.createElement('button')
+        optionButton.textContent = option
+        optionButton.addEventListener('click', () => selectOption(index))
+        optionsContainer.appendChild(optionButton)
+    })
+}
