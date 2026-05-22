@@ -13,6 +13,7 @@ let score = 0;
 // The quiz questions and answers
 const quizData = [ 
     {
+        //   key: value
         question: "How do you print to the console in JavaScript?",
         options: [ "console.log()", "print()", "document.write()", "alert()" ],
         answer: 0
