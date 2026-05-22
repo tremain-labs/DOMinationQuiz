@@ -21,3 +21,16 @@
 .hidden { 
     display: none; 
 }
+
+
+/* Correct answer feedback */
+.correct-answer {
+    background-color: green;
+    color: white;
+}
+
+/* Incorrect answer feedback */
+.incorrect-answer {
+    background-color: red;
+    color: white;
+}
