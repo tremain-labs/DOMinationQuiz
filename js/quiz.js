@@ -13,6 +13,8 @@ for (let i = 0; i < questions.length; i++) {
     const question = questions[i]
 }
 
+
+// The quiz questions and answers
 const quizData = [ 
     {
         question: "How do you print to the console in JavaScript?",
