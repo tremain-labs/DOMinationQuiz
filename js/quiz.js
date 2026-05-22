@@ -40,6 +40,7 @@ function loadQuestion() {
     })
 }
 
+// Start the quiz button
 startButton.addEventListener('click', () => {
     startButton.classList.add('hidden')  // hide start button
     loadQuestion()                        // show first question
