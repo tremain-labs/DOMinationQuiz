@@ -1,4 +1,5 @@
 // Grab elements from the page
+const startButton = document.querySelector('.start-button')
 const quizContainer = document.querySelector('.quiz-container')
 const scoreContainer = document.querySelector('.score-container')
 const questionsContainer = document.querySelector('.questions-container')
