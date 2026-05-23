@@ -36,7 +36,7 @@ function loadQuestion() {
     question.options.forEach((option, index) => {
         const optionButton = document.createElement('button')
         optionButton.textContent = option
-        optionButton.addEventListener('click', () => selectOption(index))
+        optionButton.addEventListener('click', () => selectOption(index, optionButton))
         optionsContainer.appendChild(optionButton)
     })
 }
@@ -46,3 +46,19 @@ startButton.addEventListener('click', () => {
     startButton.classList.add('hidden')  // hide start button
     loadQuestion()                        // show first question
 })
+
+// If answered on quiz
+function selectOption(index, button) {
+    const allButtons = optionsContainer.querySelectorAll('button')
+    allButtons.forEach(btn => btn.disabled = true)
+    nextButton.classList.remove('hidden')
+     if(index === quizData[currentQuestion].answer) {
+        button.classList.add('correct-answer')  
+        score++
+    } else{
+        button.classList.add('incorrect-answer')
+        allButtons[quizData[currentQuestion].answer].classList.add('correct-answer')
+    }
+}
+
+// Next Button Question
