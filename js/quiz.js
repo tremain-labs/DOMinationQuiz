@@ -10,6 +10,7 @@ const restartButton = document.querySelector('.restart-button')
 // Track quiz state
 let currentQuestion = 0;
 let score = 0;
+let activeQuiz = [];
 
 // The quiz questions and answers
 const quizData = [ 
@@ -35,7 +36,7 @@ const quizData = [
 // Load the current question
 
 function loadQuestion() {
-    const question = quizData[currentQuestion]
+    const question = activeQuiz[currentQuestion]
     questionsContainer.textContent = question.question
     optionsContainer.textContent = ""
     
@@ -49,6 +50,9 @@ function loadQuestion() {
 
 // Start the quiz button
 startButton.addEventListener('click', () => {
+    activeQuiz = quizData
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 10)
     startButton.classList.add('hidden')  // hide start button
     loadQuestion()                        // show first question
 })
@@ -58,30 +62,33 @@ function selectOption(index, button) {
     const allButtons = optionsContainer.querySelectorAll('button')
     allButtons.forEach(btn => btn.disabled = true)
     nextButton.classList.remove('hidden')
-     if(index === quizData[currentQuestion].answer) {
+     if(index === activeQuiz[currentQuestion].answer) {
         button.classList.add('correct-answer')  
         score++
     } else{
         button.classList.add('incorrect-answer')
-        allButtons[quizData[currentQuestion].answer].classList.add('correct-answer')
+        allButtons[activeQuiz[currentQuestion].answer].classList.add('correct-answer')
     }
 }
 
 // Next Button Question
 nextButton.addEventListener('click', () => {
     currentQuestion++
-    if(currentQuestion < quizData.length) {
+    if(currentQuestion < activeQuiz.length) {
         nextButton.classList.add('hidden')
         loadQuestion()
     } else {
         quizContainer.classList.add('hidden')
         scoreContainer.classList.remove('hidden')
-        document.querySelector('.score').textContent = `You scored ${score} out of ${quizData.length}`
+        document.querySelector('.score').textContent = `You scored ${score} out of ${activeQuiz.length}`
     }
 })
 
 restartButton.addEventListener('click', () => {
     // reset everything
+    activeQuiz = quizData
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 10)
     currentQuestion = 0
     score = 0
     quizContainer.classList.remove('hidden')
@@ -91,3 +98,7 @@ restartButton.addEventListener('click', () => {
     questionsContainer.textContent = ""
     optionsContainer.textContent = ""
 })
+
+// Randomize questions (optional)
+// quizData.sort(() => 0.5 - Math.floor(Math.random() * quizData.length))
+Math.floor(Math.random() * quizData.length)
