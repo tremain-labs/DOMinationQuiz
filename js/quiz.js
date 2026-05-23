@@ -23,6 +23,11 @@ const quizData = [
         question: "What is the correct way to declare a variable in JavaScript?",
         options: [ " myVar = 5;", "let myVar = 5;", "const myVar = 5;", "All of the above" ],
         answer: 3
+    },
+    {
+        question: "Which of the following is NOT a JavaScript data type?",
+        options: [ "String", "Number", "Boolean", "Character" ],
+        answer: 3
     }
 
 ];
