@@ -5,6 +5,7 @@ const scoreContainer = document.querySelector('.score-container')
 const questionsContainer = document.querySelector('.questions-container')
 const optionsContainer = document.querySelector('.options-container')
 const nextButton = document.querySelector('.next-button')
+const restartButton = document.querySelector('.restart-button')
 
 // Track quiz state
 let currentQuestion = 0;
@@ -62,3 +63,26 @@ function selectOption(index, button) {
 }
 
 // Next Button Question
+nextButton.addEventListener('click', () => {
+    currentQuestion++
+    if(currentQuestion < quizData.length) {
+        nextButton.classList.add('hidden')
+        loadQuestion()
+    } else {
+        quizContainer.classList.add('hidden')
+        scoreContainer.classList.remove('hidden')
+        document.querySelector('.score').textContent = `You scored ${score} out of ${quizData.length}`
+    }
+})
+
+restartButton.addEventListener('click', () => {
+    // reset everything
+    currentQuestion = 0
+    score = 0
+    quizContainer.classList.remove('hidden')
+    nextButton.classList.add('hidden')
+    scoreContainer.classList.add('hidden')
+    startButton.classList.remove('hidden')
+    questionsContainer.textContent = ""
+    optionsContainer.textContent = ""
+})
